@@ -1,7 +1,6 @@
 const { Request, Response } = require("express");
 const db = require("../database/db");
 
-
 //create -> read -> delete -> star
 //falta realizar os favoritos
 
@@ -30,9 +29,9 @@ const registerUser = (request, response) => {
   }
 
   if (existentUser == false) {
-    db.insertUser(data);
+    db.insertUser({ ...data, favorite: false });
 
-    return response.status(201).json("registerUserd");
+    return response.status(201).json("registerUser");
   }
 };
 
@@ -51,7 +50,7 @@ const deleteUser = (request, response) => {
 
   users.forEach((user, index) => {
     if (user.username == username) {
-      db.deleteOne(index);
+      db.deleteUser(index);
 
       return response.status(200).json({
         msg: `Usuário ${username} deletado com sucesso`,
@@ -64,8 +63,22 @@ const deleteUser = (request, response) => {
   });
 };
 
+const favoriteUser = (request, response) => {
+  const { users } = db.readAllUsers();
+  const data = request.params.username;
+  users.forEach((user) => {
+    if (user.username == data) {
+      user.favorite = !user.favorite;
+    } else user.favorite = false;
+  });
+  return response.status(200).json({
+    msg: `Usuário ${data} favoritado com sucesso`,
+  });
+};
+
 module.exports = {
   index,
   registerUser,
   deleteUser,
+  favoriteUser,
 };

@@ -79,8 +79,6 @@ export default {
 </script>
   
 <style scoped>
-
-
 input {
     border-radius: 5px;
     height: 20px;
@@ -132,6 +130,10 @@ input:hover {
     background-color: cornflowerblue;
     color: black;
     justify-content: center;
+}
+
+h1{
+    margin: 0;
 }
 </style>
 

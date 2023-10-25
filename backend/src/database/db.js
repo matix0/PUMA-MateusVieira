@@ -1,6 +1,6 @@
 //persistir os dados como um objeto ou como json?
 const db = {
-  "users": []
+  users: [],
 };
 
 const readAllUsers = () => {
@@ -15,8 +15,14 @@ const deleteUser = (index) => {
   db.users.splice(index, 1);
 };
 
+const favoriteUser = (data) => {
+  let favUser = data;
+  users.favorite == favUser ? "" : users.favorite = favUser
+};
+
 module.exports = {
   readAllUsers,
   insertUser,
   deleteUser,
+  favoriteUser
 };
