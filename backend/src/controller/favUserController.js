@@ -7,12 +7,12 @@ const registerUser = (request, response) => {
   console.log(users);
   const data = request.body;
   console.log(data);
+
   if (users.length == 5) {
     return response.status(400).json({
       error: `Limite máximo atingido, remova algum usuário para possibilitar o registro`,
     });
   }
-
 
   let existentUser = false;
 
