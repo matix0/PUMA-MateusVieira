@@ -144,7 +144,10 @@ input:hover {
   gap: 36px;
   justify-content: center;
 }
-
+.user-details img{
+  width: 250px;
+  height: 250px;
+}
 h1 {
   margin: 0;
 }
