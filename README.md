@@ -21,5 +21,5 @@ Como fazer o setup do projeto via terminal:
   `npm install`
  3. Acesse a pasta src/ 
  `cd src/`
- 4. Insira o comando npm start, para iniciar o servidor 
+ 4. Insira o comando npm start, para rodar o frontend em um ambiente localhost
  `npm run dev`
