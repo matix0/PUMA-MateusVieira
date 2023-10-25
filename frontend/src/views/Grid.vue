@@ -1,91 +1,102 @@
 <template>
-    <div @click="sortUsers()" class="sort">
-        <button>Ordenar Alfabeticamente</button>
-    </div>
-    <div class="grid">
-        <div v-if="users.length > 0" class="grid">
-            <UserCard v-for="user in users" :key="user.id" :user="user" @delete="deleteUser(user)"
-                @favorite="favoriteUser(user)" />
-        </div>
-        <p v-else>Adicione algum usuário para preencher o grid :)</p>
-    </div>
+  <div @click="sortUsers()" class="sort">
+    <button>Ordenar Alfabeticamente</button>
+  </div>
+  <div v-if="users.length > 0" class="grid">
+    <UserCard
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+      @delete="deleteUser(user)"
+      @favorite="favoriteUser(user)"
+    />
+  </div>
+  <p style="color: #f2f2f2" v-else>
+    Adicione algum usuário para preencher o grid :)
+  </p>
 </template>
-  
+
 <script>
-import axios from 'axios';
-import UserCard from './Cards.vue';
+import axios from "axios";
+import UserCard from "./Cards.vue";
 
 export default {
-    components: {
-        UserCard
-    },
-    data() {
-        return {
-            users: [],
-        };
-    },
-    created() {
-        axios.get('http://localhost:3000/users/')
-            .then(response => {
-                this.users = response.data.users;
-                this.users.favorite = response.data.users.favorite;
-            })
-            .catch(error => {
-                console.error('Não foi possível consultar a lista de usuários', error);
-            });
-    },
-    methods: {
-        sortUsers() {
-            console.log("clicou");
-            this.users.sort((a, b) => {
-                if (a === null) {
-                    return
-                }
-                if (b === null) {
-                    return -1
-                }
-                if (a === b) {
-                    return 0
-                }
-                return a.name?.localeCompare(b.name)
-            });
+  components: {
+    UserCard,
+  },
+  data() {
+    return {
+      users: [],
+    };
+  },
+  created() {
+    axios
+      .get("http://localhost:3000/users/")
+      .then((response) => {
+        this.users = response.data.users;
+        this.users.favorite = response.data.users.favorite;
+      })
+      .catch((error) => {
+        console.error("Não foi possível consultar a lista de usuários", error);
+      });
+  },
+  methods: {
+    sortUsers() {
+      this.users.sort((a, b) => {
+        if (a.name === null) {
+          return 1; // move usuários com nome nulo para o final
+        } else if (b.name === null) {
+          return -1; // move usuários com nome nulo para o final
+        } else {
+          return a.name.localeCompare(b.name);
         }
-    }
-}
+      });
+    },
+  },
+};
 </script>
-  
+
 <style scoped>
 button {
-    margin-left: 20px;
-    margin-top: 20px;
+  padding: 0 2rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #fff;
+  color: #774c60;
 }
 
 img {
-    width: 30px;
+  width: 30px;
 }
 
 .grid {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    background-color: #3B1473;
-    border-radius: 5px;
-    padding-bottom: 40px;
-    padding-top: 20px;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  background-color: #3b1473;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
+  align-content: flex-start;
+  justify-content: center;
 }
 
 p {
-    margin-top: 10px;
-    text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.sort{
-    display: flex;
-    justify-content: center;
-    background-color: #3B1473;
+.sort {
+  display: flex;
+  justify-content: center;
+  background-color: #3b1473;
 }
 </style>
-  

@@ -1,4 +1,3 @@
-//persistir os dados como um objeto ou como json?
 const db = {
   users: [],
 };

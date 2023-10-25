@@ -1,15 +1,18 @@
 const { Request, Response } = require("express");
 const db = require("../database/db");
 
-//registro de um usuario no banco
+//função de registro de um usuario no banco
 const registerUser = (request, response) => {
   const { users } = db.readAllUsers();
+  console.log(users);
   const data = request.body;
+  console.log(data);
   if (users.length == 5) {
     return response.status(400).json({
       error: `Limite máximo atingido, remova algum usuário para possibilitar o registro`,
     });
   }
+
 
   let existentUser = false;
 
@@ -32,14 +35,14 @@ const registerUser = (request, response) => {
   }
 };
 
-//leitura dos usuarios cadastrados no banco
+//função de leitura dos usuarios cadastrados no banco
 const index = (request, response) => {
   const users = db.readAllUsers();
   console.log(users);
   return response.status(200).json(users);
 };
 
-//remover usuario do banco
+//função de remover usuario do banco
 const deleteUser = (request, response) => {
   const username = request.params.username;
 
@@ -60,6 +63,7 @@ const deleteUser = (request, response) => {
   });
 };
 
+//função de favoritar usuário
 const favoriteUser = (request, response) => {
   const { users } = db.readAllUsers();
   const data = request.params.username;
