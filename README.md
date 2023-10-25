@@ -9,9 +9,7 @@ Como fazer o setup do projeto via terminal:
   `cd backend`
  2. Insira o npm install, para instalar os modulos do nodejs
   `npm install`
- 3. Acesse a pasta src/ 
- `cd src/`
- 4. Insira o comando npm start, para iniciar o servidor 
+ 3. Insira o comando npm start, para iniciar o servidor 
  `npm start`
  
 ### Frontend
@@ -19,7 +17,5 @@ Como fazer o setup do projeto via terminal:
   `cd frontend`
  2. Insira o npm install, para instalar os modulos do nodejs
   `npm install`
- 3. Acesse a pasta src/ 
- `cd src/`
- 4. Insira o comando npm start, para rodar o frontend em um ambiente localhost
+ 3. Insira o comando npm start, para rodar o frontend em um ambiente localhost
  `npm run dev`
