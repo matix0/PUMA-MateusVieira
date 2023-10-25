@@ -1,4 +1,4 @@
-# PUMA-MateusVieira
+# PUMA - Mateus Vieira
 Repositório criado para participar do desafio de código proposto pelo PUMA
 
 # Instruções
