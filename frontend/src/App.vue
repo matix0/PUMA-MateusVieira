@@ -20,4 +20,7 @@ export default {
 </script>
 
 <style scoped>
+html{
+  height: 100vh;
+}
 </style>

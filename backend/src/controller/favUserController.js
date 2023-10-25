@@ -1,9 +1,6 @@
 const { Request, Response } = require("express");
 const db = require("../database/db");
 
-//create -> read -> delete -> star
-//falta realizar os favoritos
-
 //registro de um usuario no banco
 const registerUser = (request, response) => {
   const { users } = db.readAllUsers();

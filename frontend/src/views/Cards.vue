@@ -51,7 +51,8 @@ export default {
     align-items: center;
     padding: 10px;
     border-radius: 10px;
-    background-color: #a38191;
+    background-color:#7C27F2;
+    width: 25%;
 
 }
 
@@ -59,23 +60,22 @@ export default {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    color: #F2F2F2
 }
 
 .card-info img {
     width: 100px;
     height: 100px;
     border-radius: 100%;
-    border: solid #454545
+    border: solid #f2f2f2
 }
 
 .card-info h3 {
     margin-top: 10px;
-    color: #E1F5F2;
 }
 
 .card-info p {
     margin-bottom: 10px;
-    color: black;
 }
 
 .buttons {

@@ -1,6 +1,6 @@
 <template>
     <div @click="sortUsers()" class="sort">
-        <img src="../assets/components/icons/sort.svg" class="icons">
+        <button>Ordenar Alfabeticamente</button>
     </div>
     <div class="grid">
         <div v-if="users.length > 0" class="grid">
@@ -68,11 +68,13 @@ img {
     display: flex;
     gap: 30px;
     justify-content: center;
-    background-color: #1A1423;
+    background-color: #3B1473;
     border-radius: 5px;
     padding-bottom: 40px;
     padding-top: 20px;
     height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 p {
@@ -81,8 +83,9 @@ p {
 }
 
 .sort{
-    margin-bottom: -40px;
-    
+    display: flex;
+    justify-content: center;
+    background-color: #3B1473;
 }
 </style>
   

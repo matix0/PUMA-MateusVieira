@@ -100,15 +100,15 @@ input:hover {
     text-align: center;
     gap: 20px;
     padding: 0px 0 20px 0px;
-    background-color: darkolivegreen;
+    background-color: #7c27f2e8;
     border-radius: 5px;
+    color: #e0e0e0
 }
 
 .search-field {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #774C60;
 }
 
 #search-button {
@@ -127,8 +127,8 @@ input:hover {
 
 .modal{
     display: flex;
-    background-color: cornflowerblue;
-    color: black;
+    background-color: #7c27f200;
+    color: #e0e0e0;
     justify-content: center;
 }
 
