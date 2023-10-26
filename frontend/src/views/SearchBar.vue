@@ -8,7 +8,7 @@
     </div>
     <!-- Modal com o usuario (foto,nome,usuario)-->
     <div v-if="showModal" class="modal">
-      <div class="modal-content">
+      <div>
         <h2>Deseja inserir esse usuário?</h2>
         <div class="user-details">
           <img :src="user.avatar_url" :alt="user.name" />
@@ -107,7 +107,7 @@ input:hover {
 .search-bar {
   text-align: center;
   gap: 20px;
-  padding: 0px 0 20px 0px;
+  padding: 35px 0 20px 0px;
   background-color: #7c27f2e8;
   color: #e0e0e0;
 }

@@ -98,5 +98,6 @@ p {
   display: flex;
   justify-content: center;
   background-color: #3b1473;
+  padding: 10px 0px 20px 0px;
 }
 </style>
